@@ -15,11 +15,12 @@ class EditBlog extends Component {
             created_at: '',
             updated_at: ''
         }
+        console.log(props);
         this.onChangeEventHandler = this.onChangeEventHandler.bind(this);
     }
 
     componentDidMount() {
-        if(this.props.location.state){
+        if(this.props.location.state && this.props.location.query){
             const { id, title, slug, author, category, content, created_at, updated_at } = this.props.location.state.blog;
             this.setState({
                 id,
@@ -31,6 +32,8 @@ class EditBlog extends Component {
                 created_at,
                 updated_at
             });
+        } else {
+            this.props.history.push('/');
         }
     }
 
@@ -63,7 +66,7 @@ class EditBlog extends Component {
             updated_at: date
         }
         
-        this.props.location.state.update(updatedBlog);
+        this.props.location.query(updatedBlog);
 
         this.setState({
             id        : '',

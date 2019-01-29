@@ -6,8 +6,8 @@ class Blogs extends Component {
     return (
       <React.Fragment>
           <h1 className="title">Blog Lists</h1>
-          {blogs.map(blog => 
-            <BlogItem key={blog.id} blog={blog} delete={this.props.delete} update={this.props.update} add={this.props.add}/> 
+          {blogs.map((blog) =>
+              <BlogItem key={blog.id} blog={blog} delete={this.props.delete} update={this.props.update}/> 
           )}
       </React.Fragment>
     )

@@ -12,12 +12,14 @@ class App extends Component {
   render() {
     return (
       <React.Fragment>
-          <Header />
+          <Header add={this.props.add}/>
           <Switch>
             <Route exact path='/'>
-              <Blogs blogs={this.props.blogs} delete={this.props.delete} add={this.props.add} update={this.props.update}/>
+              <Blogs blogs={this.props.blogs} delete={this.props.delete} update={this.props.update}/>
             </Route>
-            <Route exact path='/blog/create' component={AddBlog}/>
+            <Route exact path='/blog/create'>
+              <AddBlog add={this.props.add} />
+            </Route>
             <Route exact path='/blog/edit/:slug' component={EditBlog} />
           </Switch>
       </React.Fragment>

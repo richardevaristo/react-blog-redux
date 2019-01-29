@@ -2,11 +2,12 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { MONTHS } from '../variables/variables';
 class BlogItem extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.state = {
             showBlog: false
         }
+        console.log(props)
         this.toggleShowContent = this.toggleShowContent.bind(this);
         this.deleteBlog = this.deleteBlog.bind(this)
     }
@@ -71,9 +72,9 @@ class BlogItem extends Component {
             ></i>
             <Link to={{
                 pathname: `/blog/edit/${this.props.blog.slug}`,
+                query: this.props.update,
                 state: {
-                    blog: this.props.blog,
-                    update: this.props.update
+                    blog: this.props.blog
                 }
             }}>
             <i 

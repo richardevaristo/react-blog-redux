@@ -2,18 +2,21 @@ import React, { Component } from 'react'
 import { v4 } from 'uuid';
 import TextInput from '../layouts/TextInput';
 import TextArea from '../layouts/TextArea';
+import {Redirect} from 'react-router-dom';
 class AddBlog extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+        console.log(props);
         this.state = {
             title   : '',
             content : '',
             author  : '',
             category: '',
-            slug    : ''
+            slug    : '',
+            success : false
         }
         this.onChangeEventHandler = this.onChangeEventHandler.bind(this);
-
+        this.submitForm = this.submitForm.bind(this)
     }
 
     submitForm = (e) => {
@@ -45,7 +48,8 @@ class AddBlog extends Component {
             slug    : ''
         });
 
-        this.props.history.push('/');
+        // this.props.history.push('/');
+        this.setState({success: !this.state.success});
     }
 
     onChangeEventHandler = (e) => {
@@ -67,7 +71,7 @@ class AddBlog extends Component {
             <div className="columns">
                 <div className="column is-three-fifths is-offset-one-fifth">
                     <h2 className="title is-2 has-text-centered">Add Blog</h2>
-                    <form onSubmit={this.submitForm.bind(this)}>
+                    <form onSubmit={this.submitForm}>
                     <TextInput 
                         label       = "Title"
                         name        = "title"
@@ -106,7 +110,10 @@ class AddBlog extends Component {
                     </form>
                 </div>
             </div>
-                    </div>
+            {
+                this.state.success && <Redirect to='/' />
+            }
+        </div>
       </React.Fragment>
     )
   }

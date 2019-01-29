@@ -1,5 +1,6 @@
 import { v4 } from 'uuid'
-const BlogReducer = (state = {
+
+const initialState = {
     blogs: [
         {
           id        : v4(),
@@ -31,13 +32,15 @@ const BlogReducer = (state = {
           created_at: '2019-04-01',
           updated_at: ''
         }
-      ]
-}, action) => {
+    ]
+}
+
+const BlogReducer = (state = initialState, action) => {
     switch(action.type) {
         case "ADD_BLOG":
             return {
                 ...state,
-                blogs: [action.payload,...state]
+                blogs: [action.payload, ...state.blogs]
             }
         case "UPDATE_BLOG":
             return {
