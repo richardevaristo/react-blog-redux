@@ -77,10 +77,10 @@ class BlogItem extends Component {
                     blog: this.props.blog
                 }
             }}>
-            <i 
-                className = "fa fa-pencil is-pulled-right"
-                style     = {{cursor: 'pointer'}}
-            ></i>
+                <i 
+                    className = "fa fa-pencil is-pulled-right"
+                    style     = {{cursor: 'pointer'}}
+                ></i>
             </Link>
         </h1>
         {this.state.showBlog && this.showContent(this.props.blog)}

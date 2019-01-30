@@ -15,7 +15,6 @@ class EditBlog extends Component {
             created_at: '',
             updated_at: ''
         }
-        console.log(props);
         this.onChangeEventHandler = this.onChangeEventHandler.bind(this);
     }
 

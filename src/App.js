@@ -7,6 +7,7 @@ import EditBlog from './components/blogs/EditBlog';
 import Header from './components/layouts/Header';
 import { connect } from 'react-redux';
 import { addBlog, deleteBlog, updateBlog } from './app/actions/BlogActions';
+import About from './components/pages/About';
 
 class App extends Component {
   render() {
@@ -17,6 +18,7 @@ class App extends Component {
             <Route exact path='/'>
               <Blogs blogs={this.props.blogs} delete={this.props.delete} update={this.props.update}/>
             </Route>
+            <Route exact path='/about' component={About}/>
             <Route exact path='/blog/create'>
               <AddBlog add={this.props.add} />
             </Route>
