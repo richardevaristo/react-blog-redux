@@ -36,11 +36,19 @@ const initialState = {
 }
 
 const BlogReducer = (state = initialState, action) => {
+    const d = new Date();
+    const newDate = `${d.getFullYear}-${d.getMonth() + 1}-${d.getDate()}`;
     switch(action.type) {
-        case "ADD_BLOG":
+        case "ADD_BLOG":  
             return {
                 ...state,
-                blogs: [action.payload, ...state.blogs]
+                blogs: [{
+                    id: v4(), 
+                    ...action.payload, 
+                    created_at: newDate
+                    }, 
+                    ...state.blogs
+                ]
             }
         case "UPDATE_BLOG":
             return {

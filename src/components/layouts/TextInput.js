@@ -48,7 +48,7 @@ TextInput.propTypes = {
     changeEvent: func,
     placeholder: string.isRequired,
     readOnly: bool,
-    value: string.isRequired
+    value: string
 }
 
 export default TextInput

@@ -7,14 +7,9 @@ class BlogItem extends Component {
         this.state = {
             showBlog: false
         }
-        console.log(props)
-        this.toggleShowContent = this.toggleShowContent.bind(this);
-        this.deleteBlog = this.deleteBlog.bind(this)
     }
 
-    deleteBlog = (id) => {
-        this.props.delete(id)
-    }
+    deleteBlog = (id) => this.props.delete(id)
 
     toggleShowContent = () => this.setState({ 
         showBlog: !this.state.showBlog 
@@ -82,9 +77,9 @@ class BlogItem extends Component {
                     style     = {{cursor: 'pointer'}}
                 ></i>
             </Link>
-        </h1>
-        {this.state.showBlog && this.showContent(this.props.blog)}
-    </div>
+            </h1>
+            {this.state.showBlog && this.showContent(this.props.blog)}
+        </div>
       </React.Fragment>
     )
   }

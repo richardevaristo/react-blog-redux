@@ -37,6 +37,6 @@ TextArea.propTypes = {
     label: string.isRequired,
     changeEvent: func,
     placeholder: string,
-    defaultValue: string
+    value: string
 }
 export default TextArea
